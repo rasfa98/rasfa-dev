@@ -5,10 +5,7 @@ const Header = () => {
     <header className="flex items-center justify-between py-10">
       <div className="font-bold text-3xl">
         <Link href="/">
-          <span className="cursor-pointer">
-            Rasfa.
-            <span className="text-primary">dev</span>
-          </span>
+          <span className="cursor-pointer">Rasfa.dev</span>
         </Link>
       </div>
 
