@@ -1,23 +1,26 @@
 import Post from "@/types/post";
 import sortByDate from "@/utils/sortByDate";
-import fs from "fs";
+import fs from "fs/promises";
 import matter from "gray-matter";
 import path from "path";
 
-export const getAllPosts = (): Post[] => {
-  const files = fs.readdirSync(path.join("posts"));
+export const getAllPosts = async (): Promise<Post[]> => {
+  const files = await fs.readdir(path.join("posts"));
+  const posts = [];
 
-  const posts = files.map((filename) => {
+  for (let i = 0; i < files.length; i++) {
+    const filename = files[i];
+
     const slug = filename.replace(".md", "");
 
-    const markdownWithMeta = fs.readFileSync(
+    const markdownWithMeta = await fs.readFile(
       path.join("posts", filename),
       "utf-8"
     );
 
     const { data: frontmatter, content } = matter(markdownWithMeta);
 
-    return {
+    const post = {
       slug,
       title: frontmatter.title,
       excerpt: frontmatter.excerpt,
@@ -25,20 +28,22 @@ export const getAllPosts = (): Post[] => {
       content: content,
       image: frontmatter.image,
     };
-  });
+
+    posts.push(post);
+  }
 
   return posts.sort(sortByDate);
 };
 
-export const getPostBySlug = (slug: string): Post => {
-  const markdownWithMeta = fs.readFileSync(
+export const getPostBySlug = async (slug: string): Promise<Post> => {
+  const markdownWithMeta = await fs.readFile(
     path.join("posts", slug + ".md"),
     "utf-8"
   );
 
   const { data: frontmatter, content } = matter(markdownWithMeta);
 
-  return {
+  const post = {
     slug,
     title: frontmatter.title,
     excerpt: frontmatter.excerpt,
@@ -46,4 +51,6 @@ export const getPostBySlug = (slug: string): Post => {
     content: content,
     image: frontmatter.image,
   };
+
+  return post;
 };

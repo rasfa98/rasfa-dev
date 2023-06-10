@@ -1,3 +1,4 @@
+import Heading from "@/components/heading";
 import { getAllPosts } from "@/lib/api";
 import { Metadata } from "next";
 import Link from "next/link";
@@ -9,13 +10,13 @@ export const metadata: Metadata = {
     "A blog about web development and technology which aims to help developers improve their skills.",
 };
 
-export default function Page() {
-  const posts = getAllPosts();
+export default async function Page() {
+  const posts = await getAllPosts();
   const recentPosts = posts.slice(0, 5);
 
   return (
     <>
-      <h1 className="font-bold text-4xl sm:text-6xl">Latest posts</h1>
+      <Heading>Latest posts</Heading>
 
       <div className="flex flex-col gap-y-8 my-10">
         {recentPosts.map((post: any, i: any) => (

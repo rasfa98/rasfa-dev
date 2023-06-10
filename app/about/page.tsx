@@ -1,10 +1,11 @@
+import Heading from "@/components/heading";
 import Socials from "@/components/socials";
 import { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "About",
-  description: `I'm a passionate developer with an eye for detail that loves quality
+  description: `I am a passionate developer with an eye for detail that loves quality
   code and a good looking UI. In my free time I like to go out for a run
   or go to the gym and lift some weights. I started this blog in order
   to share my knowledge when it comes to web development but also to
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <h1 className="text-4xl sm:text-6xl font-bold">About</h1>
+      <Heading>About</Heading>
 
       <div className="my-10 flex flex-col items-center gap-10 justify-between md:flex-row md:items-start">
         <div className="flex flex-col items-center text-center">

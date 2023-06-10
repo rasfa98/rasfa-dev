@@ -1,10 +1,11 @@
+import Heading from "@/components/heading";
 import { getAllPosts, getPostBySlug } from "@/lib/api";
 import { marked } from "marked";
 import { Metadata } from "next";
 import Image from "next/image";
 
-export function generateStaticParams() {
-  const posts = getAllPosts();
+export async function generateStaticParams() {
+  const posts = await getAllPosts();
 
   return posts.map((post) => ({
     slug: post.slug,
@@ -18,7 +19,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const slug = params.slug;
 
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
 
   return {
     title: post.title,
@@ -31,12 +32,12 @@ export async function generateMetadata({
   };
 }
 
-export default function Page({ params }: { params: { slug: string } }) {
-  const post = getPostBySlug(params.slug);
+export default async function Page({ params }: { params: { slug: string } }) {
+  const post = await getPostBySlug(params.slug);
 
   return (
     <>
-      <h1 className="text-4xl sm:text-6xl font-bold">{post.title}</h1>
+      <Heading>{post.title}</Heading>
 
       {post.image && (
         <div className="relative aspect-[2/1] my-10">
