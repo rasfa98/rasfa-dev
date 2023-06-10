@@ -50,6 +50,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             src={`/${post.image}`}
             alt={post.title}
             className="object-cover"
+            priority
             fill
           />
         </div>
