@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ThemeToggle from "./theme-toggle";
 
 const Header = () => {
   return (
@@ -7,9 +8,10 @@ const Header = () => {
         <Link href="/">Rasfa.dev</Link>
       </div>
 
-      <div className="flex gap-x-10">
+      <div className="flex gap-x-10 items-center">
         <Link href="/blog">Blog</Link>
         <Link href="/about">About</Link>
+        <ThemeToggle />
       </div>
     </header>
   );

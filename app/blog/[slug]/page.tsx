@@ -57,7 +57,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       )}
 
       <article
-        className="prose max-w-none my-10"
+        className="dark:prose-invert prose dark:prose-pre:bg-white dark:prose-pre:text-black max-w-none my-10"
         dangerouslySetInnerHTML={{ __html: marked(post.content) }}
       />
     </>
