@@ -2,11 +2,9 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <header className="flex items-center justify-between py-10">
+    <header className="flex items-center justify-between gap-10 py-10">
       <div className="font-bold text-3xl">
-        <Link href="/">
-          <span className="cursor-pointer">Rasfa.dev</span>
-        </Link>
+        <Link href="/">Rasfa.dev</Link>
       </div>
 
       <div className="flex gap-x-10">

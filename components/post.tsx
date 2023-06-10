@@ -1,17 +1,21 @@
+import Post from "@/types/post";
+import formatDate from "@/utils/formatDate";
 import Link from "next/link";
 
-const Post = ({ slug, frontmatter }: { slug: string; frontmatter: any }) => {
+const Post = (post: Post) => {
+  const date = formatDate(post.date);
+
   return (
-    <article key={slug}>
+    <article key={post.slug}>
       <h2 className="text-2xl font-bold">
-        <Link href={`/blog/${slug}`}>{frontmatter.title}</Link>
+        <Link href={`/blog/${post.slug}`}>{post.title}</Link>
       </h2>
-      <p>{frontmatter.date}</p>
+      <p>{date}</p>
 
-      <p className="my-4">{frontmatter.excerpt.slice(0, 250) + "..."}</p>
+      <p className="my-4">{post.excerpt.slice(0, 250) + "..."}</p>
 
-      <div className="text-primary">
-        <Link href={`/blog/${slug}`}>Read more &rarr;</Link>
+      <div>
+        <Link href={`/blog/${post.slug}`}>Read more &rarr;</Link>
       </div>
     </article>
   );

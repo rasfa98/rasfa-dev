@@ -22,7 +22,7 @@ export default function Page() {
           <Post {...post} key={i} />
         ))}
 
-        <div className="text-primary ml-auto">
+        <div className="ml-auto">
           <Link href="/blog">All posts &rarr;</Link>
         </div>
       </div>
