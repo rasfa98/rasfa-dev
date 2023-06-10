@@ -12,7 +12,7 @@ const Post = (post: Post) => {
       </h2>
       <p>{date}</p>
 
-      <p className="my-4">{post.excerpt.slice(0, 250) + "..."}</p>
+      <p className="my-4 line-clamp-2">{post.excerpt}</p>
 
       <div>
         <Link href={`/blog/${post.slug}`}>Read more &rarr;</Link>
