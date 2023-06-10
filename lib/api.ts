@@ -36,12 +36,11 @@ export const getAllPosts = async (): Promise<Post[]> => {
 };
 
 export const getPostBySlug = async (slug: string): Promise<Post> => {
-  const markdownWithMeta = await fs.readFile(
-    path.join("posts", slug + ".md"),
-    "utf-8"
-  );
+  const markdownWithMeta = await fs
+    .readFile(path.join("posts", slug + ".md"), "utf-8")
+    .catch(() => null);
 
-  const { data: frontmatter, content } = matter(markdownWithMeta);
+  const { data: frontmatter, content } = matter(markdownWithMeta || "");
 
   const post = {
     slug,

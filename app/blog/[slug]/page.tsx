@@ -3,6 +3,7 @@ import { getAllPosts, getPostBySlug } from "@/lib/api";
 import { marked } from "marked";
 import { Metadata } from "next";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
   const posts = await getAllPosts();
@@ -34,6 +35,10 @@ export async function generateMetadata({
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const post = await getPostBySlug(params.slug);
+
+  if (!post.content) {
+    notFound();
+  }
 
   return (
     <>
