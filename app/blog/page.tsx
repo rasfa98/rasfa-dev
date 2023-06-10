@@ -6,6 +6,10 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Blog posts",
   description: "Here you can find all of my blog posts.",
+  openGraph: {
+    title: "Blog posts",
+    description: "Here you can find all of my blog posts.",
+  },
 };
 
 export default async function Page() {

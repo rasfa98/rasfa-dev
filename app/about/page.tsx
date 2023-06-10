@@ -11,6 +11,15 @@ export const metadata: Metadata = {
   to share my knowledge when it comes to web development but also to
   improve my own skills along the way. I hope that you will find this
   blog interesting and that it will inspire you!`,
+  openGraph: {
+    title: "About",
+    description: `I am a passionate developer with an eye for detail that loves quality
+  code and a good looking UI. In my free time I like to go out for a run
+  or go to the gym and lift some weights. I started this blog in order
+  to share my knowledge when it comes to web development but also to
+  improve my own skills along the way. I hope that you will find this
+  blog interesting and that it will inspire you!`,
+  },
 };
 
 export default function Page() {

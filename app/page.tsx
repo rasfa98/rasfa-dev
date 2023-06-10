@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Latest posts",
   description:
     "A blog about web development and technology which aims to help developers improve their skills.",
+  openGraph: {
+    title: "Latest posts",
+    description:
+      "A blog about web development and technology which aims to help developers improve their skills.",
+  },
 };
 
 export default async function Page() {
