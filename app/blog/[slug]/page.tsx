@@ -1,3 +1,4 @@
+import CodeHighlight from "@/components/code-highlight";
 import Heading from "@/components/heading";
 import { getAllPosts, getPostBySlug } from "@/lib/api";
 import { marked } from "marked";
@@ -42,6 +43,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   return (
     <>
+      <CodeHighlight />
+
       <Heading>{post.title}</Heading>
 
       {post.image && (
@@ -57,7 +60,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       )}
 
       <article
-        className="dark:prose-invert prose dark:prose-pre:bg-white dark:prose-pre:text-black max-w-none my-10"
+        className="dark:prose-invert prose prose-pre:bg-transparent prose-pre:p-0 max-w-none my-10"
         dangerouslySetInnerHTML={{ __html: marked(post.content) }}
       />
     </>

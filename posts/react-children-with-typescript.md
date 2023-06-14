@@ -8,7 +8,7 @@ The React children prop makes it possible to reuse components across your applic
 
 ## Simple implementation that works in some cases
 
-```jsx
+```ts
 const Button = ({ children }: { children: string }) => {
   return <button>{children}</button>;
 };
@@ -18,7 +18,7 @@ The button takes a string as children which allows us to add a simple text to th
 
 ## A more versatile solution
 
-```jsx
+```ts
 const Button = ({ children }: { children: string | JSX.Element }) => {
   return <button>{children}</button>;
 };
@@ -28,7 +28,7 @@ The updated code will allow us to add the same type of text as before but we can
 
 ## The React PropsWithChildren type
 
-```jsx
+```ts
 import { PropsWithChildren } from "react";
 
 const Button = ({ children }: PropsWithChildren) => {
@@ -38,7 +38,7 @@ const Button = ({ children }: PropsWithChildren) => {
 
 In this example we will use the type **PropsWithChildren** provided by React. This type allows us to make the children the same type as if we would use a regular button meaning all of the previous use cases will work as expected. PropsWithChildren is a <a href="https://www.typescriptlang.org/docs/handbook/2/generics.html" target="_blank">generic type</a> that takes one optional type argument that makes it possible to combine the children with any type of our choice. If we would like to add a prop **color** to our button component we could do that without much effort.
 
-```jsx
+```ts
 import { PropsWithChildren } from "react";
 
 const Button = ({ children }: PropsWithChildren<{ color: string }>) => {
