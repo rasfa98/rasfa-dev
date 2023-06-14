@@ -7,6 +7,8 @@ My current personal website [rasfa.dev](https://rasfa.dev) built with Next.js an
 - Next.js
 - Tailwind CSS
 - TypeScript
+- Sass
+- Highlight.js
 
 ## Start project
 
